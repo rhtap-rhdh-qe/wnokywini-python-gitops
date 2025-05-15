@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: wnokywini-python-gitops
+  description: This is GitOps manifest for wnokywini-python   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=wnokywini-python
+    backstage.io/kubernetes-id: wnokywini-python 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: wnokywini-python
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:wnokywini-python
